@@ -8,7 +8,7 @@ message(STATUS "Found LLVM/Clang version " ${LLVM_VERSION})
 add_executable(MPIMutationTool MPIMutationTool.cpp Mutations.cpp)
 
 target_link_libraries(MPIMutationTool clang clang-cpp clangTooling)
-target_include_directories(MPIMutationTool PUBLIC /usr/lib/llvm-15/include)
+target_include_directories(MPIMutationTool PUBLIC ${CLANG_INCLUDE_DIRS})
 
 #wir wollen das die ausführbare datei keine run time type information generiert
 #das ist notwendig weil die bibliothek (clangTooling) auch keine rtti hat, 
