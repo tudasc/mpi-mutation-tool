@@ -1,0 +1,13 @@
+diff --git a/parcsr_ls/gen_redcs_mat.c b/parcsr_ls/gen_redcs_mat.c
+index aa6df20..603f4da 100644
+--- a/parcsr_ls/gen_redcs_mat.c
++++ b/parcsr_ls/gen_redcs_mat.c
+@@ -91,7 +91,7 @@ int hypre_seqAMGSetup( hypre_ParAMGData *amg_data,
+          info = hypre_CTAlloc(int, new_num_procs);
+ 
+          if (redundant)
+-            MPI_Allgather(&num_rows, 1, MPI_INT, info, 1, MPI_INT, new_comm);
++            {int rank_1233; MPI_Comm_rank(MPI_COMM_WORLD, &rank_1233); if(rank_1233 != 0) MPI_Allgather(&num_rows, 1, MPI_INT, info, 1, MPI_INT, new_comm);}
+          else
+             MPI_Gather(&num_rows, 1, MPI_INT, info, 1, MPI_INT, 0, new_comm);
+ 

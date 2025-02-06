@@ -1,0 +1,13 @@
+diff --git a/parcsr_ls/par_strength.c b/parcsr_ls/par_strength.c
+index 44b9fa6..d4c78ea 100644
+--- a/parcsr_ls/par_strength.c
++++ b/parcsr_ls/par_strength.c
+@@ -1154,7 +1154,7 @@ int hypre_BoomerAMGCreate2ndS( hypre_ParCSRMatrix *S, int *CF_marker,
+    my_first_cpt = coarse_row_starts[0];
+    my_last_cpt = coarse_row_starts[1]-1;
+    if (my_id == (num_procs -1)) global_num_coarse = coarse_row_starts[1];
+-   MPI_Bcast(&global_num_coarse, 1, MPI_HYPRE_BIG_INT, num_procs-1, comm);
++   int rank_abc8; MPI_Comm_rank(comm, &rank_abc8); if(rank_abc8 == 0) { MPI_Barrier(comm);}MPI_Bcast(&global_num_coarse, 1, MPI_HYPRE_BIG_INT, num_procs-1, comm);if(rank_abc8 != 0) { MPI_Barrier(comm);}
+ #else
+    my_first_cpt = coarse_row_starts[my_id];
+    my_last_cpt = coarse_row_starts[my_id+1]-1;

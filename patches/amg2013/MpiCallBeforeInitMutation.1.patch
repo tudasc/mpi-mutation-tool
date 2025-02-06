@@ -1,0 +1,13 @@
+diff --git a/test/amg2013.c b/test/amg2013.c
+index e7b44d9..6291cb5 100644
+--- a/test/amg2013.c
++++ b/test/amg2013.c
+@@ -1663,7 +1663,7 @@ main( int   argc,
+     *-----------------------------------------------------------*/
+ 
+    /* Initialize MPI */
+-   MPI_Init(&argc, &argv);
++   int dummy_rank_1231; MPI_Comm_rank(MPI_COMM_WORLD, &dummy_rank_1231);MPI_Init(&argc, &argv);
+ 
+    MPI_Comm_size(MPI_COMM_WORLD, &num_procs);
+    MPI_Comm_rank(MPI_COMM_WORLD, &myid);

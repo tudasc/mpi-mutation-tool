@@ -1,0 +1,13 @@
+diff --git a/lulesh.cc b/lulesh.cc
+index a141611..157f927 100644
+--- a/lulesh.cc
++++ b/lulesh.cc
+@@ -2696,7 +2696,7 @@ int main(int argc, char *argv[])
+ #if USE_MPI   
+    Domain_member fieldData ;
+ 
+-   MPI_Init(&argc, &argv) ;
++   int dummy_rank_1231; MPI_Comm_rank(MPI_COMM_WORLD, &dummy_rank_1231);MPI_Init(&argc, &argv) ;
+    MPI_Comm_size(MPI_COMM_WORLD, &numRanks) ;
+    MPI_Comm_rank(MPI_COMM_WORLD, &myRank) ;
+ #else

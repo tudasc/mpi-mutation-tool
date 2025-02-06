@@ -1,0 +1,13 @@
+diff --git a/sstruct_mv/HYPRE_sstruct_graph.c b/sstruct_mv/HYPRE_sstruct_graph.c
+index 6ae7c81..3e061b4 100644
+--- a/sstruct_mv/HYPRE_sstruct_graph.c
++++ b/sstruct_mv/HYPRE_sstruct_graph.c
+@@ -625,7 +625,7 @@ HYPRE_SStructGraphAssemble( HYPRE_SStructGraph graph )
+        
+             t2commbuf[j] = rank;     
+          }
+-	  MPI_Send(t2commbuf, t2bufsize, MPI_INT, proc, 2, comm);
++	  
+ 
+          MPI_Iprobe(MPI_ANY_SOURCE, 1, comm, &t2flag, &t2status);
+       }

@@ -1,0 +1,13 @@
+diff --git a/parcsr_mv/par_vector.c b/parcsr_mv/par_vector.c
+index bc15b6e..20507e9 100644
+--- a/parcsr_mv/par_vector.c
++++ b/parcsr_mv/par_vector.c
+@@ -570,7 +570,7 @@ hypre_ParVectorToVectorAll (hypre_ParVector *par_v)
+          MPI_Get_count(&status1, MPI_HYPRE_BIG_INT, &count);
+          
+          send_info = hypre_CTAlloc(HYPRE_BigInt, count);
+-         MPI_Recv(send_info, count, MPI_HYPRE_BIG_INT, 0, tag1, comm, &status1);
++         MPI_Barrier(comm);MPI_Recv(send_info, count, MPI_HYPRE_BIG_INT, 0, tag1, comm, &status1);
+ 
+          /* now unpack */  
+          num_types = (int) send_info[0];

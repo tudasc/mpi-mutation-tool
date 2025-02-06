@@ -1,0 +1,13 @@
+diff --git a/IJ_mv/HYPRE_IJVector.c b/IJ_mv/HYPRE_IJVector.c
+index f136aaa..2dcde6a 100644
+--- a/IJ_mv/HYPRE_IJVector.c
++++ b/IJ_mv/HYPRE_IJVector.c
+@@ -89,7 +89,7 @@ int HYPRE_IJVectorCreate( MPI_Comm comm,
+    {
+       rowN = jupper;
+    }
+-   MPI_Bcast(&rowN, 1, MPI_HYPRE_BIG_INT, num_procs-1, comm);
++   int rank_abc4; MPI_Comm_rank(comm, &rank_abc4); if(rank_abc4 == 0) { MPI_Barrier(comm);}MPI_Bcast(&rowN, 1, MPI_HYPRE_BIG_INT, num_procs-1, comm);if(rank_abc4 != 0) { MPI_Barrier(comm);}
+ 
+    hypre_IJVectorGlobalFirstRow(vec) = row0;
+    hypre_IJVectorGlobalNumRows(vec) = rowN - row0 + 1;

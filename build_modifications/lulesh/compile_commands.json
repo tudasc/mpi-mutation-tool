@@ -1,0 +1,97 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/clang++-15",
+      "-c",
+      "-g",
+      "-O3",
+      "-I.",
+      "-Wall",
+      "-DUSE_MPI=1",
+      "-I/usr/lib/x86_64-linux-gnu/openmpi/include",
+      "-I/usr/lib/x86_64-linux-gnu/openmpi/include/openmpi",
+      "-o",
+      "lulesh-comm.o",
+      "lulesh-comm.cc"
+    ],
+    "directory": "/home/jonas/Uni/Masterarbeit/mpi_mutation_tool/LULESH-2.0.3",
+    "file": "/home/jonas/Uni/Masterarbeit/mpi_mutation_tool/LULESH-2.0.3/lulesh-comm.cc",
+    "output": "/home/jonas/Uni/Masterarbeit/mpi_mutation_tool/LULESH-2.0.3/lulesh-comm.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/clang++-15",
+      "-c",
+      "-g",
+      "-O3",
+      "-I.",
+      "-Wall",
+      "-DUSE_MPI=1",
+      "-I/usr/lib/x86_64-linux-gnu/openmpi/include",
+      "-I/usr/lib/x86_64-linux-gnu/openmpi/include/openmpi",
+      "-o",
+      "lulesh-util.o",
+      "lulesh-util.cc"
+    ],
+    "directory": "/home/jonas/Uni/Masterarbeit/mpi_mutation_tool/LULESH-2.0.3",
+    "file": "/home/jonas/Uni/Masterarbeit/mpi_mutation_tool/LULESH-2.0.3/lulesh-util.cc",
+    "output": "/home/jonas/Uni/Masterarbeit/mpi_mutation_tool/LULESH-2.0.3/lulesh-util.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/clang++-15",
+      "-c",
+      "-g",
+      "-O3",
+      "-I.",
+      "-Wall",
+      "-DUSE_MPI=1",
+      "-I/usr/lib/x86_64-linux-gnu/openmpi/include",
+      "-I/usr/lib/x86_64-linux-gnu/openmpi/include/openmpi",
+      "-o",
+      "lulesh-viz.o",
+      "lulesh-viz.cc"
+    ],
+    "directory": "/home/jonas/Uni/Masterarbeit/mpi_mutation_tool/LULESH-2.0.3",
+    "file": "/home/jonas/Uni/Masterarbeit/mpi_mutation_tool/LULESH-2.0.3/lulesh-viz.cc",
+    "output": "/home/jonas/Uni/Masterarbeit/mpi_mutation_tool/LULESH-2.0.3/lulesh-viz.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/clang++-15",
+      "-c",
+      "-g",
+      "-O3",
+      "-I.",
+      "-Wall",
+      "-DUSE_MPI=1",
+      "-I/usr/lib/x86_64-linux-gnu/openmpi/include",
+      "-I/usr/lib/x86_64-linux-gnu/openmpi/include/openmpi",
+      "-o",
+      "lulesh.o",
+      "lulesh.cc"
+    ],
+    "directory": "/home/jonas/Uni/Masterarbeit/mpi_mutation_tool/LULESH-2.0.3",
+    "file": "/home/jonas/Uni/Masterarbeit/mpi_mutation_tool/LULESH-2.0.3/lulesh.cc",
+    "output": "/home/jonas/Uni/Masterarbeit/mpi_mutation_tool/LULESH-2.0.3/lulesh.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/clang++-15",
+      "-c",
+      "-g",
+      "-O3",
+      "-I.",
+      "-Wall",
+      "-DUSE_MPI=1",
+      "-I/usr/lib/x86_64-linux-gnu/openmpi/include",
+      "-I/usr/lib/x86_64-linux-gnu/openmpi/include/openmpi",
+      "-o",
+      "lulesh-init.o",
+      "lulesh-init.cc"
+    ],
+    "directory": "/home/jonas/Uni/Masterarbeit/mpi_mutation_tool/LULESH-2.0.3",
+    "file": "/home/jonas/Uni/Masterarbeit/mpi_mutation_tool/LULESH-2.0.3/lulesh-init.cc",
+    "output": "/home/jonas/Uni/Masterarbeit/mpi_mutation_tool/LULESH-2.0.3/lulesh-init.o"
+  }
+]

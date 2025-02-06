@@ -1,0 +1,15 @@
+diff --git a/lulesh.cc b/lulesh.cc
+index a141611..1ec61c8 100644
+--- a/lulesh.cc
++++ b/lulesh.cc
+@@ -2790,8 +2790,8 @@ int main(int argc, char *argv[])
+ #endif
+    double elapsed_timeG;
+ #if USE_MPI   
+-   MPI_Reduce(&elapsed_time, &elapsed_timeG, 1, MPI_DOUBLE,
+-              MPI_MAX, 0, MPI_COMM_WORLD);
++   MPI_Comm null_comm_abc1 = NULL;MPI_Reduce(&elapsed_time, &elapsed_timeG, 1, MPI_DOUBLE,
++              MPI_MAX, 0, null_comm_abc1);
+ #else
+    elapsed_timeG = elapsed_time;
+ #endif

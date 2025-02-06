@@ -1,0 +1,13 @@
+diff --git a/test/amg2013.c b/test/amg2013.c
+index e7b44d9..31f009d 100644
+--- a/test/amg2013.c
++++ b/test/amg2013.c
+@@ -2669,7 +2669,7 @@ main( int   argc,
+ 
+ 
+    /* Finalize MPI */
+-   MPI_Finalize();
++   
+ 
+ 
+    return (0);

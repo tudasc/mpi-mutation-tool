@@ -1,0 +1,6 @@
+./wrapper.sh -c kripke/kripke-v1.2.4-d85c6bc/build/compile_commands.json -s kripke/kripke-v1.2.4-d85c6bc/src/ -o patches kripke/kripke-v1.2.4-d85c6bc
+
+./wrapper.sh -c AMG2013/compile_commands.json -s AMG2013/ -o patches AMG2013/
+
+./wrapper.sh -c LULESH-2.0.3/compile_commands.json -s LULESH-2.0.3/ -o patches LULESH-2.0.3/
+

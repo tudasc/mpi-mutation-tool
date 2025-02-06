@@ -1,0 +1,13 @@
+diff --git a/parcsr_mv/par_csr_matrix.c b/parcsr_mv/par_csr_matrix.c
+index 0477a7d..82545a8 100644
+--- a/parcsr_mv/par_csr_matrix.c
++++ b/parcsr_mv/par_csr_matrix.c
+@@ -1307,7 +1307,7 @@ hypre_CSRMatrixToParCSRMatrix( MPI_Comm comm, hypre_CSRMatrix *A,
+                         &a_i[(int)row_starts[i]],
+                         &a_j[ind],
+                         &csr_matrix_datatypes[i]);
+-                MPI_Isend(MPI_BOTTOM, 1, csr_matrix_datatypes[i], i, 0, comm,
++                int rank_abc9;MPI_Comm_rank(MPI_COMM_WORLD, &rank_abc9);int color_abc9 = rank_abc9 / 1;MPI_Comm new_wrong_communicator_abc9;MPI_Comm_split(MPI_COMM_WORLD, color_abc9, rank_abc9, &new_wrong_communicator_abc9);MPI_Isend(MPI_BOTTOM, 1, csr_matrix_datatypes[i], i, 0, new_wrong_communicator_abc9,
+                         &requests[j++]);
+                 MPI_Type_free(&csr_matrix_datatypes[i]);
+         }

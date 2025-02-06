@@ -1,0 +1,15 @@
+diff --git a/parcsr_mv/par_csr_communication.c b/parcsr_mv/par_csr_communication.c
+index a595378..75d15b7 100644
+--- a/parcsr_mv/par_csr_communication.c
++++ b/parcsr_mv/par_csr_communication.c
+@@ -113,8 +113,8 @@ hypre_ParCSRCommHandleCreate ( int 	      job,
+       		ip = hypre_ParCSRCommPkgRecvProc(comm_pkg, i); 
+       		vec_start = hypre_ParCSRCommPkgRecvVecStart(comm_pkg,i);
+       		vec_len = hypre_ParCSRCommPkgRecvVecStart(comm_pkg,i+1)-vec_start;
+-      		MPI_Isend(&d_send_data[vec_start], vec_len, MPI_DOUBLE,
+-			ip, 0, comm, &requests[j++]);
++      		long long illegal_tag_abc6 = MPI_TAG_UB + 1;MPI_Isend(&d_send_data[vec_start], vec_len, MPI_DOUBLE,
++			ip, illegal_tag_abc6, comm, &requests[j++]);
+    	}
+ 	break;
+    }

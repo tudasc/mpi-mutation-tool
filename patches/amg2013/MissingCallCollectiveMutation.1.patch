@@ -1,0 +1,13 @@
+diff --git a/parcsr_mv/par_csr_communication.c b/parcsr_mv/par_csr_communication.c
+index a595378..0b5fe4b 100644
+--- a/parcsr_mv/par_csr_communication.c
++++ b/parcsr_mv/par_csr_communication.c
+@@ -352,7 +352,7 @@ hypre_MatvecCommPkgCreate_core (
+ 
+    local_info = 2*num_recvs;
+ 			
+-   MPI_Allgather(&local_info, 1, MPI_INT, info, 1, MPI_INT, comm); 
++   int rank_1231; MPI_Comm_rank(MPI_COMM_WORLD, &rank_1231); if(rank_1231 != 0) MPI_Allgather(&local_info, 1, MPI_INT, info, 1, MPI_INT, comm); 
+ 
+ /* ----------------------------------------------------------------------
+  * generate information to be sent: tmp contains for each recv_proc:

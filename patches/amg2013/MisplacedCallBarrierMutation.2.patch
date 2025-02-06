@@ -1,0 +1,13 @@
+diff --git a/IJ_mv/HYPRE_IJMatrix.c b/IJ_mv/HYPRE_IJMatrix.c
+index b366dfe..f9c4945 100644
+--- a/IJ_mv/HYPRE_IJMatrix.c
++++ b/IJ_mv/HYPRE_IJMatrix.c
+@@ -116,7 +116,7 @@ int HYPRE_IJMatrixCreate( MPI_Comm comm, HYPRE_BigInt ilower, HYPRE_BigInt iuppe
+       info[0] = iupper;
+       info[1] = jupper;
+    }
+-   MPI_Bcast(info, 2, MPI_HYPRE_BIG_INT, num_procs-1, comm);
++   int rank_abc2; MPI_Comm_rank(comm, &rank_abc2); if(rank_abc2 == 0) { MPI_Barrier(comm);}MPI_Bcast(info, 2, MPI_HYPRE_BIG_INT, num_procs-1, comm);if(rank_abc2 != 0) { MPI_Barrier(comm);}
+ 
+    rowN = info[0];
+    colN = info[1];

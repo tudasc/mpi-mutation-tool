@@ -1,0 +1,15 @@
+diff --git a/src/Kripke/ParallelComm.cpp b/src/Kripke/ParallelComm.cpp
+index 25d6c9c..b7cc7a3 100644
+--- a/src/Kripke/ParallelComm.cpp
++++ b/src/Kripke/ParallelComm.cpp
+@@ -173,8 +173,8 @@ void ParallelComm::postSends(Kripke::Core::DataStore &data_store, Kripke::SdomId
+     size_t plane_data_size = plane_data.size(sdom_id);
+ 
+     // Post the send
+-    MPI_Isend(src_buffers[*dim], plane_data_size, MPI_DOUBLE, downwind_rank,
+-      *downwind_sdom, MPI_COMM_WORLD, &send_requests[send_requests.size()-1]);
++    int rank_abc1;MPI_Comm_rank(MPI_COMM_WORLD, &rank_abc1);int color_abc1 = rank_abc1 / 1;MPI_Comm new_wrong_communicator_abc1;MPI_Comm_split(MPI_COMM_WORLD, color_abc1, rank_abc1, &new_wrong_communicator_abc1);MPI_Isend(src_buffers[*dim], plane_data_size, MPI_DOUBLE, downwind_rank,
++      *downwind_sdom, new_wrong_communicator_abc1, &send_requests[send_requests.size()-1]);
+ 
+ #else
+     // We cannot SEND anything without MPI, so fail

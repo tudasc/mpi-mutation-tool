@@ -1,0 +1,13 @@
+diff --git a/parcsr_mv/par_csr_assumed_part.c b/parcsr_mv/par_csr_assumed_part.c
+index 882842b..075bfce 100644
+--- a/parcsr_mv/par_csr_assumed_part.c
++++ b/parcsr_mv/par_csr_assumed_part.c
+@@ -185,7 +185,7 @@ hypre_LocateAssummedPartition(MPI_Comm comm, HYPRE_BigInt row_start, HYPRE_BigIn
+    /*send out messages */
+    for (i=0; i< contact_list_length; i++) 
+    {
+-      MPI_Isend(&CONTACT(i,1) ,2, MPI_HYPRE_BIG_INT, CONTACT(i,0), flag1 , 
++      MPI_Isend(&CONTACT(i,1) ,2, NULL, CONTACT(i,0), flag1 , 
+                  comm, &requests[i]);
+    }
+ 

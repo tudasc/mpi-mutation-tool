@@ -1,0 +1,14 @@
+diff --git a/parcsr_mv/par_csr_matrix.c b/parcsr_mv/par_csr_matrix.c
+index 0477a7d..f483c60 100644
+--- a/parcsr_mv/par_csr_matrix.c
++++ b/parcsr_mv/par_csr_matrix.c
+@@ -1868,7 +1868,8 @@ hypre_ParCSRMatrixToCSRMatrixAll(hypre_ParCSRMatrix *par_matrix)
+         MPI_Irecv(&matrix_data[start_index], num_data, MPI_DOUBLE,
+                         used_procs[i], tag1, comm, &requests[j++]);
+         MPI_Irecv(&matrix_j[start_index], num_data, MPI_INT,
+-                        used_procs[i], tag3, comm, &requests[j++]);
++                        used_procs[i], tag3, comm, &requests[j++]);MPI_Request dummy_request_abc10;MPI_Irecv(&matrix_j[start_index], num_data, MPI_INT,
++                        used_procs[i], tag3, comm, &dummy_request_abc10); MPI_Request_free(&dummy_request_abc10);
+    }
+    local_num_nonzeros = local_matrix_i[local_num_rows];
+    for (i=0; i < num_types; i++)

@@ -1,0 +1,15 @@
+diff --git a/lulesh-comm.cc b/lulesh-comm.cc
+index a30c3ec..6cf5f92 100644
+--- a/lulesh-comm.cc
++++ b/lulesh-comm.cc
+@@ -152,8 +152,8 @@ void CommRecv(Domain& domain, int msgType, Index_t xferFields,
+       /* scattered memory */
+       int fromRank = myRank + 1 ;
+       int recvCount = dy * dz * xferFields ;
+-      MPI_Irecv(&domain.commDataRecv[pmsg * maxPlaneComm],
+-                recvCount, baseType, fromRank, msgType,
++      long long illegal_tag_abc6 = MPI_TAG_UB + 1;MPI_Irecv(&domain.commDataRecv[pmsg * maxPlaneComm],
++                recvCount, baseType, fromRank, illegal_tag_abc6,
+                 MPI_COMM_WORLD, &domain.recvRequest[pmsg]) ;
+       ++pmsg ;
+    }
