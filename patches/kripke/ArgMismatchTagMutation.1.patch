@@ -1,0 +1,13 @@
+diff --git a/src/Kripke/ParallelComm.cpp b/src/Kripke/ParallelComm.cpp
+index 25d6c9c..d26fca0 100644
+--- a/src/Kripke/ParallelComm.cpp
++++ b/src/Kripke/ParallelComm.cpp
+@@ -104,7 +104,7 @@ void ParallelComm::postRecvs(Kripke::Core::DataStore &data_store, SdomId sdom_id
+ 
+     // Post the recieve
+     MPI_Irecv(plane_data_ptr, plane_data_size, MPI_DOUBLE, upwind_rank,
+-      *global_sdom_id, MPI_COMM_WORLD, &recv_requests[recv_requests.size()-1]);
++      1+*global_sdom_id, MPI_COMM_WORLD, &recv_requests[recv_requests.size()-1]);
+ 
+     // increment number of dependencies
+     num_depends ++;

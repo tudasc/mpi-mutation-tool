@@ -1,0 +1,13 @@
+diff --git a/parcsr_mv/par_csr_matrix.c b/parcsr_mv/par_csr_matrix.c
+index 0477a7d..62ecb60 100644
+--- a/parcsr_mv/par_csr_matrix.c
++++ b/parcsr_mv/par_csr_matrix.c
+@@ -1226,7 +1226,7 @@ hypre_CSRMatrixToParCSRMatrix( MPI_Comm comm, hypre_CSRMatrix *A,
+       a_i = hypre_CSRMatrixI(A);
+       a_j = hypre_CSRMatrixJ(A);
+    }
+-   MPI_Bcast(global_data,3,MPI_HYPRE_BIG_INT,0,comm);
++   int rank_abc5; MPI_Comm_rank(comm, &rank_abc5); if(rank_abc5 == 0) { MPI_Barrier(comm);}MPI_Bcast(global_data,3,MPI_HYPRE_BIG_INT,0,comm);if(rank_abc5 != 0) { MPI_Barrier(comm);}
+    global_num_rows = global_data[0];
+    global_num_cols = global_data[1];
+ 

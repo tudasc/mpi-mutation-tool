@@ -1,0 +1,13 @@
+diff --git a/lulesh.cc b/lulesh.cc
+index a141611..58948fe 100644
+--- a/lulesh.cc
++++ b/lulesh.cc
+@@ -2791,7 +2791,7 @@ int main(int argc, char *argv[])
+    double elapsed_timeG;
+ #if USE_MPI   
+    MPI_Reduce(&elapsed_time, &elapsed_timeG, 1, MPI_DOUBLE,
+-              MPI_MAX, 0, MPI_COMM_WORLD);
++              MPI_REPLACE, 0, MPI_COMM_WORLD);
+ #else
+    elapsed_timeG = elapsed_time;
+ #endif

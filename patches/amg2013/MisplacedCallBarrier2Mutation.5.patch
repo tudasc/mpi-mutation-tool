@@ -1,0 +1,13 @@
+diff --git a/sstruct_mv/HYPRE_sstruct_graph.c b/sstruct_mv/HYPRE_sstruct_graph.c
+index 6ae7c81..c238d68 100644
+--- a/sstruct_mv/HYPRE_sstruct_graph.c
++++ b/sstruct_mv/HYPRE_sstruct_graph.c
+@@ -607,7 +607,7 @@ HYPRE_SStructGraphAssemble( HYPRE_SStructGraph graph )
+             t2commbuf = hypre_TReAlloc(t2commbuf, int, t2bufsize);
+             t2maxbufsize = t2bufsize;
+          }
+-         MPI_Recv(t2commbuf, t2bufsize, MPI_INT, proc, 1, comm, &t2status);
++         MPI_Barrier(comm);MPI_Recv(t2commbuf, t2bufsize, MPI_INT, proc, 1, comm, &t2status);
+ 
+          t2bufsize /= 6;
+          for (j = 0; j < t2bufsize; j++)

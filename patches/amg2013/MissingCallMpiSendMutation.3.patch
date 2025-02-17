@@ -1,0 +1,13 @@
+diff --git a/sstruct_mv/HYPRE_sstruct_graph.c b/sstruct_mv/HYPRE_sstruct_graph.c
+index 6ae7c81..8f8e970 100644
+--- a/sstruct_mv/HYPRE_sstruct_graph.c
++++ b/sstruct_mv/HYPRE_sstruct_graph.c
+@@ -658,7 +658,7 @@ HYPRE_SStructGraphAssemble( HYPRE_SStructGraph graph )
+             /* post type 0 fanout sends */
+             for (i = 0; i < t0nhi; i++)
+             {
+-               MPI_Send(NULL, 0, MPI_INT, t0hiprocs[i], 0, comm);
++               
+             }
+          }
+       }

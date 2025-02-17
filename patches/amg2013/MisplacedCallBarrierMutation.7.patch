@@ -1,0 +1,13 @@
+diff --git a/parcsr_ls/par_interp.c b/parcsr_ls/par_interp.c
+index 9058503..c1bc590 100644
+--- a/parcsr_ls/par_interp.c
++++ b/parcsr_ls/par_interp.c
+@@ -133,7 +133,7 @@ hypre_BoomerAMGBuildInterp( hypre_ParCSRMatrix   *A,
+ #ifdef HYPRE_NO_GLOBAL_PARTITION
+    my_first_cpt = num_cpts_global[0];
+    if (my_id == (num_procs -1)) total_global_cpts = num_cpts_global[1];
+-   MPI_Bcast(&total_global_cpts, 1, MPI_HYPRE_BIG_INT, num_procs-1, comm);
++   int rank_abc7; MPI_Comm_rank(comm, &rank_abc7); if(rank_abc7 == 0) { MPI_Barrier(comm);}MPI_Bcast(&total_global_cpts, 1, MPI_HYPRE_BIG_INT, num_procs-1, comm);if(rank_abc7 != 0) { MPI_Barrier(comm);}
+ #else
+    my_first_cpt = num_cpts_global[my_id];
+    total_global_cpts = num_cpts_global[num_procs];

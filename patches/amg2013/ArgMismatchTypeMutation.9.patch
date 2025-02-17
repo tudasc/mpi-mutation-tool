@@ -1,0 +1,13 @@
+diff --git a/parcsr_mv/par_csr_matrix.c b/parcsr_mv/par_csr_matrix.c
+index 0477a7d..960dbc8 100644
+--- a/parcsr_mv/par_csr_matrix.c
++++ b/parcsr_mv/par_csr_matrix.c
+@@ -1329,7 +1329,7 @@ hypre_CSRMatrixToParCSRMatrix( MPI_Comm comm, hypre_CSRMatrix *A,
+                         hypre_CSRMatrixI(local_A),
+                         hypre_CSRMatrixJ(local_A),
+                         csr_matrix_datatypes);
+-        MPI_Recv(MPI_BOTTOM,1,csr_matrix_datatypes[0],0,0,comm,&status0);
++        MPI_Recv(MPI_BOTTOM,1,MPI_LONG_DOUBLE,0,0,comm,&status0);
+         MPI_Type_free(csr_matrix_datatypes);
+    }
+ 

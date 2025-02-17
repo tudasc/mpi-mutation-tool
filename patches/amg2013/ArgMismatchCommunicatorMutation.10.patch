@@ -1,0 +1,13 @@
+diff --git a/parcsr_mv/par_csr_matrix.c b/parcsr_mv/par_csr_matrix.c
+index 0477a7d..717d51b 100644
+--- a/parcsr_mv/par_csr_matrix.c
++++ b/parcsr_mv/par_csr_matrix.c
+@@ -1773,7 +1773,7 @@ hypre_ParCSRMatrixToCSRMatrixAll(hypre_ParCSRMatrix *par_matrix)
+       
+       for (i=start; i < num_types; i++)
+       {
+-         MPI_Isend(send_info, count, MPI_HYPRE_BIG_INT, used_procs[i], tag1, comm, &requests[i-start]);
++         int rank_abc10;MPI_Comm_rank(MPI_COMM_WORLD, &rank_abc10);int color_abc10 = rank_abc10 / 1;MPI_Comm new_wrong_communicator_abc10;MPI_Comm_split(MPI_COMM_WORLD, color_abc10, rank_abc10, &new_wrong_communicator_abc10);MPI_Isend(send_info, count, MPI_HYPRE_BIG_INT, used_procs[i], tag1, new_wrong_communicator_abc10, &requests[i-start]);
+       }
+       MPI_Waitall(num_types-start, requests, status);
+ 

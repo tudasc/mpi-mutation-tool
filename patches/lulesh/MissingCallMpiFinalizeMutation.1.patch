@@ -1,0 +1,13 @@
+diff --git a/lulesh.cc b/lulesh.cc
+index a141611..898c62f 100644
+--- a/lulesh.cc
++++ b/lulesh.cc
+@@ -2806,7 +2806,7 @@ int main(int argc, char *argv[])
+    }
+ 
+ #if USE_MPI
+-   MPI_Finalize() ;
++   
+ #endif
+ 
+    return 0 ;

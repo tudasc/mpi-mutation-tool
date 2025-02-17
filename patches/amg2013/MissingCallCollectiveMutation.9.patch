@@ -1,0 +1,13 @@
+diff --git a/struct_mv/struct_grid.c b/struct_mv/struct_grid.c
+index b364fbe..57454e6 100644
+--- a/struct_mv/struct_grid.c
++++ b/struct_mv/struct_grid.c
+@@ -445,7 +445,7 @@ hypre_GatherAllBoxes(MPI_Comm         comm,
+    sendcount = 7*hypre_BoxArraySize(boxes);
+    recvcounts = hypre_SharedTAlloc(int, num_all_procs);
+    displs = hypre_TAlloc(int, num_all_procs);
+-   MPI_Allgather(&sendcount, 1, MPI_INT,
++   int rank_1239; MPI_Comm_rank(MPI_COMM_WORLD, &rank_1239); if(rank_1239 != 0) MPI_Allgather(&sendcount, 1, MPI_INT,
+                  recvcounts, 1, MPI_INT, comm);
+    displs[0] = 0;
+    recvbuf_size = recvcounts[0];

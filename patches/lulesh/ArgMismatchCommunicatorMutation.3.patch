@@ -1,0 +1,16 @@
+diff --git a/lulesh-comm.cc b/lulesh-comm.cc
+index a30c3ec..8bfa2cd 100644
+--- a/lulesh-comm.cc
++++ b/lulesh-comm.cc
+@@ -456,9 +456,9 @@ void CommSend(Domain& domain, int msgType,
+          }
+          destAddr -= xferFields*sendCount ;
+ 
+-         MPI_Isend(destAddr, xferFields*sendCount, baseType,
++         int rank_abc3;MPI_Comm_rank(MPI_COMM_WORLD, &rank_abc3);int color_abc3 = rank_abc3 / 1;MPI_Comm new_wrong_communicator_abc3;MPI_Comm_split(MPI_COMM_WORLD, color_abc3, rank_abc3, &new_wrong_communicator_abc3);MPI_Isend(destAddr, xferFields*sendCount, baseType,
+                    myRank - domain.tp(), msgType,
+-                   MPI_COMM_WORLD, &domain.sendRequest[pmsg]) ;
++                   new_wrong_communicator_abc3, &domain.sendRequest[pmsg]) ;
+          ++pmsg ;
+       }
+       if (rowMax && doSend) {

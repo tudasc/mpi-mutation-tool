@@ -1,0 +1,13 @@
+diff --git a/parcsr_mv/par_csr_matrix.c b/parcsr_mv/par_csr_matrix.c
+index 0477a7d..1599d9a 100644
+--- a/parcsr_mv/par_csr_matrix.c
++++ b/parcsr_mv/par_csr_matrix.c
+@@ -1287,7 +1287,7 @@ hypre_CSRMatrixToParCSRMatrix( MPI_Comm comm, hypre_CSRMatrix *A,
+         local_num_nonzeros[num_procs-1] = a_i[(int)global_num_rows] 
+                                 - a_i[(int)row_starts[num_procs-1]];
+    }
+-   MPI_Scatter(local_num_nonzeros,1,MPI_INT,&num_nonzeros,1,MPI_INT,0,comm);
++   int negative_dest_1231 = -1;MPI_Scatter(local_num_nonzeros,1,MPI_INT,&num_nonzeros,1,MPI_INT,negative_dest_1231,comm);
+ 
+    if (my_id == 0) num_nonzeros = local_num_nonzeros[0];
+ 

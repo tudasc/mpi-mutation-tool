@@ -1,0 +1,13 @@
+diff --git a/parcsr_ls/par_stats.c b/parcsr_ls/par_stats.c
+index ab9454a..ce58bc0 100644
+--- a/parcsr_ls/par_stats.c
++++ b/parcsr_ls/par_stats.c
+@@ -592,7 +592,7 @@ hypre_BoomerAMGSetupStats( void               *amg_vdata,
+       send_buff[4] = - min_weight;
+       send_buff[5] = max_weight;
+ 
+-      MPI_Reduce(send_buff, gather_buff, 6, MPI_DOUBLE, MPI_MAX, 0, comm);
++      int rank_abc2; MPI_Comm_rank(comm, &rank_abc2); if(rank_abc2 == 0) {MPI_Reduce(send_buff, gather_buff, 6, MPI_DOUBLE, MPI_SUM, 0, comm);} else {MPI_Reduce(send_buff, gather_buff, 6, MPI_DOUBLE, MPI_MAX, 0, comm);}
+ 
+       if (my_id == 0)
+       {

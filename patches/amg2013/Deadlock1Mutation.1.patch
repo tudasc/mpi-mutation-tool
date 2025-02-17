@@ -1,0 +1,15 @@
+diff --git a/parcsr_mv/par_csr_assumed_part.c b/parcsr_mv/par_csr_assumed_part.c
+index 882842b..0be5f76 100644
+--- a/parcsr_mv/par_csr_assumed_part.c
++++ b/parcsr_mv/par_csr_assumed_part.c
+@@ -265,8 +265,8 @@ hypre_LocateAssummedPartition(MPI_Comm comm, HYPRE_BigInt row_start, HYPRE_BigIn
+ 
+    while (rows_found != locate_row_count) {
+   
+-      MPI_Recv( tmp_range, 2 , MPI_HYPRE_BIG_INT, MPI_ANY_SOURCE, 
+-                flag1 , comm, &status0);
++      MPI_Send( tmp_range, 2 , MPI_HYPRE_BIG_INT, MPI_ANY_SOURCE, 
++                flag1 , comm);
+      
+       if (part->length==part->storage_length)
+       {

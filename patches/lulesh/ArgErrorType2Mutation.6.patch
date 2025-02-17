@@ -1,0 +1,13 @@
+diff --git a/lulesh-comm.cc b/lulesh-comm.cc
+index a30c3ec..cd8148b 100644
+--- a/lulesh-comm.cc
++++ b/lulesh-comm.cc
+@@ -144,7 +144,7 @@ void CommRecv(Domain& domain, int msgType, Index_t xferFields,
+       int fromRank = myRank - 1 ;
+       int recvCount = dy * dz * xferFields ;
+       MPI_Irecv(&domain.commDataRecv[pmsg * maxPlaneComm],
+-                recvCount, baseType, fromRank, msgType,
++                recvCount, NULL, fromRank, msgType,
+                 MPI_COMM_WORLD, &domain.recvRequest[pmsg]) ;
+       ++pmsg ;
+    }

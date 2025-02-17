@@ -1,0 +1,13 @@
+diff --git a/parcsr_ls/par_amg_setup.c b/parcsr_ls/par_amg_setup.c
+index f81f3ed..7e43c64 100644
+--- a/parcsr_ls/par_amg_setup.c
++++ b/parcsr_ls/par_amg_setup.c
+@@ -1176,7 +1176,7 @@ hypre_BoomerAMGSetup( void               *amg_vdata,
+ #ifdef HYPRE_NO_GLOBAL_PARTITION
+           hypre_NewCommPkgCreate(P);
+           if (my_id == (num_procs -1)) coarse_size = coarse_pnts_global[1];
+-          MPI_Bcast(&coarse_size, 1, MPI_HYPRE_BIG_INT, num_procs-1, comm);
++          int rank_abc10; MPI_Comm_rank(comm, &rank_abc10); if(rank_abc10 == 0) { MPI_Barrier(comm);}MPI_Bcast(&coarse_size, 1, MPI_HYPRE_BIG_INT, num_procs-1, comm);if(rank_abc10 != 0) { MPI_Barrier(comm);}
+ #else
+           hypre_MatvecCommPkgCreate(P);
+           coarse_size = coarse_pnts_global[num_procs];
