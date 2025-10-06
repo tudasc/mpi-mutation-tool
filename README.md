@@ -2,7 +2,7 @@
 
 > Mutates MPI codes to introduce MPI usage errors.
 > 
-build it with cmake : `mkdir build && cd build && cmaker .. && make`
+build it with cmake : `mkdir build && cd build && cmake .. && make`
 
 
 ## Example: generate a mutation
