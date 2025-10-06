@@ -31,3 +31,6 @@ ArgMismatchOpMutation
 MisplacedCallBarrierMutation
 MisplacedCallBarrier2Mutation
 ArgMismatchIrecvBufferOverlapMutation
+NoErrorSelfSendRecvMutation
+NoErrorBroadcastSelfMutation
+NoErrorBarrierInsertionMutation
