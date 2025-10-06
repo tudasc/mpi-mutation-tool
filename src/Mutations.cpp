@@ -114,7 +114,7 @@ namespace mpi_mutation_tool {
   ast_matchers::internal::DynTypedMatcher ArgErrorNullBufferArg1Mutation::getMatcher(){
     ast_matchers::internal::DynTypedMatcher matcher =
 
-      traverse(clang::ast_type_traits::TK_IgnoreUnlessSpelledInSource,
+      traverse(TK_IgnoreUnlessSpelledInSource,
           callExpr(
             callExpr().bind("mpi_call_expr"),
             hasDeclaration(
@@ -147,7 +147,7 @@ namespace mpi_mutation_tool {
   ast_matchers::internal::DynTypedMatcher ArgErrorNullBufferArg2Mutation::getMatcher(){
     ast_matchers::internal::DynTypedMatcher matcher =
 
-      traverse(clang::ast_type_traits::TK_IgnoreUnlessSpelledInSource,
+      traverse(TK_IgnoreUnlessSpelledInSource,
           callExpr(
             callExpr().bind("mpi_call_expr"),
             hasDeclaration(
@@ -173,7 +173,7 @@ namespace mpi_mutation_tool {
   ast_matchers::internal::DynTypedMatcher ArgErrorNullBufferArg3Mutation::getMatcher(){
     ast_matchers::internal::DynTypedMatcher matcher =
 
-      traverse(clang::ast_type_traits::TK_IgnoreUnlessSpelledInSource,
+      traverse(TK_IgnoreUnlessSpelledInSource,
           callExpr(
             callExpr().bind("mpi_call_expr"),
             hasDeclaration(
@@ -196,7 +196,7 @@ namespace mpi_mutation_tool {
   ast_matchers::internal::DynTypedMatcher ArgErrorNullBufferArg4Mutation::getMatcher(){
     ast_matchers::internal::DynTypedMatcher matcher =
 
-      traverse(clang::ast_type_traits::TK_IgnoreUnlessSpelledInSource,
+      traverse(TK_IgnoreUnlessSpelledInSource,
           callExpr(
             callExpr().bind("mpi_call_expr"),
             hasDeclaration(
@@ -240,7 +240,7 @@ namespace mpi_mutation_tool {
   ast_matchers::internal::DynTypedMatcher ArgErrorCommunicator1Arg6Mutation::getMatcher(){
     ast_matchers::internal::DynTypedMatcher matcher =
 
-      traverse(clang::ast_type_traits::TK_IgnoreUnlessSpelledInSource,
+      traverse(TK_IgnoreUnlessSpelledInSource,
           callExpr(
             callExpr().bind("mpi_call_expr"),
             hasDeclaration(
@@ -262,7 +262,7 @@ namespace mpi_mutation_tool {
   ast_matchers::internal::DynTypedMatcher ArgErrorCommunicator1Arg7Mutation::getMatcher(){
     ast_matchers::internal::DynTypedMatcher matcher =
 
-      traverse(clang::ast_type_traits::TK_IgnoreUnlessSpelledInSource,
+      traverse(TK_IgnoreUnlessSpelledInSource,
           callExpr(
             callExpr().bind("mpi_call_expr"),
             hasDeclaration(
@@ -282,7 +282,7 @@ namespace mpi_mutation_tool {
   ast_matchers::internal::DynTypedMatcher ArgErrorCommunicator1Arg8Mutation::getMatcher(){
     ast_matchers::internal::DynTypedMatcher matcher =
 
-      traverse(clang::ast_type_traits::TK_IgnoreUnlessSpelledInSource,
+      traverse(TK_IgnoreUnlessSpelledInSource,
           callExpr(
             callExpr().bind("mpi_call_expr"),
             hasDeclaration(
@@ -326,7 +326,7 @@ namespace mpi_mutation_tool {
   ast_matchers::internal::DynTypedMatcher ArgErrorCommunicator2Arg6Mutation::getMatcher(){
     ast_matchers::internal::DynTypedMatcher matcher =
 
-      traverse(clang::ast_type_traits::TK_IgnoreUnlessSpelledInSource,
+      traverse(TK_IgnoreUnlessSpelledInSource,
           callExpr(
             callExpr().bind("mpi_call_expr"),
             hasDeclaration(
@@ -349,7 +349,7 @@ namespace mpi_mutation_tool {
   ast_matchers::internal::DynTypedMatcher ArgErrorCommunicator2Arg7Mutation::getMatcher(){
     ast_matchers::internal::DynTypedMatcher matcher =
 
-      traverse(clang::ast_type_traits::TK_IgnoreUnlessSpelledInSource,
+      traverse(TK_IgnoreUnlessSpelledInSource,
           callExpr(
             callExpr().bind("mpi_call_expr"),
             hasDeclaration(
@@ -370,7 +370,7 @@ namespace mpi_mutation_tool {
   ast_matchers::internal::DynTypedMatcher ArgErrorCommunicator2Arg8Mutation::getMatcher(){
     ast_matchers::internal::DynTypedMatcher matcher =
 
-      traverse(clang::ast_type_traits::TK_IgnoreUnlessSpelledInSource,
+      traverse(TK_IgnoreUnlessSpelledInSource,
           callExpr(
             callExpr().bind("mpi_call_expr"),
             hasDeclaration(
@@ -416,7 +416,7 @@ namespace mpi_mutation_tool {
   ast_matchers::internal::DynTypedMatcher ArgMismatchCommunicatorMutation::getMatcher(){
     ast_matchers::internal::DynTypedMatcher matcher =
 
-      traverse(clang::ast_type_traits::TK_IgnoreUnlessSpelledInSource,
+      traverse(TK_IgnoreUnlessSpelledInSource,
           callExpr(
             callExpr().bind("mpi_call_expr"),
             hasDeclaration(
@@ -451,7 +451,7 @@ namespace mpi_mutation_tool {
   ast_matchers::internal::DynTypedMatcher ArgErrorCount1Arg2Mutation::getMatcher(){
     ast_matchers::internal::DynTypedMatcher matcher =
 
-      traverse(clang::ast_type_traits::TK_IgnoreUnlessSpelledInSource,
+      traverse(TK_IgnoreUnlessSpelledInSource,
           callExpr(
             callExpr().bind("mpi_call_expr"),
             hasDeclaration(
@@ -493,7 +493,7 @@ namespace mpi_mutation_tool {
   ast_matchers::internal::DynTypedMatcher ArgErrorCount1Arg3Mutation::getMatcher(){
     ast_matchers::internal::DynTypedMatcher matcher =
 
-      traverse(clang::ast_type_traits::TK_IgnoreUnlessSpelledInSource,
+      traverse(TK_IgnoreUnlessSpelledInSource,
           callExpr(
             callExpr().bind("mpi_call_expr"),
             hasDeclaration(
@@ -519,7 +519,7 @@ namespace mpi_mutation_tool {
   ast_matchers::internal::DynTypedMatcher ArgErrorCount1Arg5Mutation::getMatcher(){
     ast_matchers::internal::DynTypedMatcher matcher =
 
-      traverse(clang::ast_type_traits::TK_IgnoreUnlessSpelledInSource,
+      traverse(TK_IgnoreUnlessSpelledInSource,
           callExpr(
             callExpr().bind("mpi_call_expr"),
             hasDeclaration(
@@ -581,7 +581,7 @@ namespace mpi_mutation_tool {
   ast_matchers::internal::DynTypedMatcher ArgMismatchCountMutation::getMatcher(){
     ast_matchers::internal::DynTypedMatcher matcher =
 
-      traverse(clang::ast_type_traits::TK_IgnoreUnlessSpelledInSource,
+      traverse(TK_IgnoreUnlessSpelledInSource,
           callExpr(
             callExpr().bind("mpi_call_expr"),
             hasDeclaration(
@@ -632,7 +632,7 @@ namespace mpi_mutation_tool {
   ast_matchers::internal::DynTypedMatcher ArgErrorRank1Mutation::getMatcher(){
     ast_matchers::internal::DynTypedMatcher matcher =
 
-      traverse(clang::ast_type_traits::TK_IgnoreUnlessSpelledInSource,
+      traverse(TK_IgnoreUnlessSpelledInSource,
           callExpr(
             callExpr().bind("mpi_call_expr"),
             hasDeclaration(
@@ -664,7 +664,7 @@ namespace mpi_mutation_tool {
   ast_matchers::internal::DynTypedMatcher ArgErrorNullRequestMutation::getMatcher(){
     ast_matchers::internal::DynTypedMatcher matcher =
 
-      traverse(clang::ast_type_traits::TK_IgnoreUnlessSpelledInSource,
+      traverse(TK_IgnoreUnlessSpelledInSource,
           callExpr(
             callExpr().bind("mpi_call_expr"),
             hasDeclaration(
@@ -716,7 +716,7 @@ namespace mpi_mutation_tool {
   ast_matchers::internal::DynTypedMatcher ArgErrorTag1Mutation::getMatcher(){
     ast_matchers::internal::DynTypedMatcher matcher =
 
-      traverse(clang::ast_type_traits::TK_IgnoreUnlessSpelledInSource,
+      traverse(TK_IgnoreUnlessSpelledInSource,
           callExpr(
             callExpr().bind("mpi_call_expr"),
             hasDeclaration(
@@ -755,7 +755,7 @@ namespace mpi_mutation_tool {
   ast_matchers::internal::DynTypedMatcher ArgMismatchTagMutation::getMatcher(){
     ast_matchers::internal::DynTypedMatcher matcher =
 
-      traverse(clang::ast_type_traits::TK_IgnoreUnlessSpelledInSource,
+      traverse(TK_IgnoreUnlessSpelledInSource,
           callExpr(
             callExpr().bind("mpi_call_expr"),
             hasDeclaration(
@@ -800,7 +800,7 @@ namespace mpi_mutation_tool {
   ast_matchers::internal::DynTypedMatcher ArgErrorType1Arg3Mutation::getMatcher(){
     ast_matchers::internal::DynTypedMatcher matcher =
 
-      traverse(clang::ast_type_traits::TK_IgnoreUnlessSpelledInSource,
+      traverse(TK_IgnoreUnlessSpelledInSource,
           callExpr(
             callExpr().bind("mpi_call_expr"),
             hasDeclaration(
@@ -826,7 +826,7 @@ namespace mpi_mutation_tool {
   ast_matchers::internal::DynTypedMatcher ArgErrorType1Arg4Mutation::getMatcher(){
     ast_matchers::internal::DynTypedMatcher matcher =
 
-      traverse(clang::ast_type_traits::TK_IgnoreUnlessSpelledInSource,
+      traverse(TK_IgnoreUnlessSpelledInSource,
           callExpr(
             callExpr().bind("mpi_call_expr"),
             hasDeclaration(
@@ -844,7 +844,7 @@ namespace mpi_mutation_tool {
   ast_matchers::internal::DynTypedMatcher ArgErrorType1Arg6Mutation::getMatcher(){
     ast_matchers::internal::DynTypedMatcher matcher =
 
-      traverse(clang::ast_type_traits::TK_IgnoreUnlessSpelledInSource,
+      traverse(TK_IgnoreUnlessSpelledInSource,
           callExpr(
             callExpr().bind("mpi_call_expr"),
             hasDeclaration(
@@ -897,7 +897,7 @@ namespace mpi_mutation_tool {
   ast_matchers::internal::DynTypedMatcher ArgMismatchTypeMutation::getMatcher(){
     ast_matchers::internal::DynTypedMatcher matcher =
 
-      traverse(clang::ast_type_traits::TK_IgnoreUnlessSpelledInSource,
+      traverse(TK_IgnoreUnlessSpelledInSource,
           callExpr(
             callExpr().bind("mpi_call_expr"),
             hasDeclaration(
@@ -943,7 +943,7 @@ namespace mpi_mutation_tool {
   ast_matchers::internal::DynTypedMatcher Deadlock1Mutation::getMatcher(){
     ast_matchers::internal::DynTypedMatcher matcher =
 
-      traverse(clang::ast_type_traits::TK_IgnoreUnlessSpelledInSource,
+      traverse(TK_IgnoreUnlessSpelledInSource,
           callExpr(
             callExpr().bind("mpi_call_expr"),
             hasDeclaration(
@@ -973,7 +973,7 @@ namespace mpi_mutation_tool {
   ast_matchers::internal::DynTypedMatcher MpiCallBeforeInitMutation::getMatcher(){
     ast_matchers::internal::DynTypedMatcher matcher =
 
-      traverse(clang::ast_type_traits::TK_IgnoreUnlessSpelledInSource,
+      traverse(TK_IgnoreUnlessSpelledInSource,
           callExpr(
             callExpr().bind("mpi_call_expr"),
             hasDeclaration(
@@ -1013,7 +1013,7 @@ namespace mpi_mutation_tool {
   ast_matchers::internal::DynTypedMatcher ModifyBufferDuringIsendMutation::getMatcher(){
     ast_matchers::internal::DynTypedMatcher matcher =
 
-      traverse(clang::ast_type_traits::TK_IgnoreUnlessSpelledInSource,
+      traverse(TK_IgnoreUnlessSpelledInSource,
           callExpr(
             callExpr().bind("mpi_call_expr"),
             hasDeclaration(
@@ -1054,7 +1054,7 @@ namespace mpi_mutation_tool {
   ast_matchers::internal::DynTypedMatcher MissingCallMpiFinalizeMutation::getMatcher(){
     ast_matchers::internal::DynTypedMatcher matcher =
 
-      traverse(clang::ast_type_traits::TK_IgnoreUnlessSpelledInSource,
+      traverse(TK_IgnoreUnlessSpelledInSource,
           callExpr(
             callExpr().bind("mpi_call_expr"),
             hasDeclaration(
@@ -1071,7 +1071,7 @@ namespace mpi_mutation_tool {
   ast_matchers::internal::DynTypedMatcher MissingCallMpiRecvMutation::getMatcher(){
     ast_matchers::internal::DynTypedMatcher matcher =
 
-      traverse(clang::ast_type_traits::TK_IgnoreUnlessSpelledInSource,
+      traverse(TK_IgnoreUnlessSpelledInSource,
           callExpr(
             callExpr().bind("mpi_call_expr"),
             hasDeclaration(
@@ -1088,7 +1088,7 @@ namespace mpi_mutation_tool {
   ast_matchers::internal::DynTypedMatcher MissingCallMpiSendMutation::getMatcher(){
     ast_matchers::internal::DynTypedMatcher matcher =
 
-      traverse(clang::ast_type_traits::TK_IgnoreUnlessSpelledInSource,
+      traverse(TK_IgnoreUnlessSpelledInSource,
           callExpr(
             callExpr().bind("mpi_call_expr"),
             hasDeclaration(
@@ -1105,7 +1105,7 @@ namespace mpi_mutation_tool {
   ast_matchers::internal::DynTypedMatcher MissingCallMpiWaitMutation::getMatcher(){
     ast_matchers::internal::DynTypedMatcher matcher =
 
-      traverse(clang::ast_type_traits::TK_IgnoreUnlessSpelledInSource,
+      traverse(TK_IgnoreUnlessSpelledInSource,
           callExpr(
             callExpr().bind("mpi_call_expr"),
             hasDeclaration(
@@ -1140,7 +1140,7 @@ namespace mpi_mutation_tool {
   ast_matchers::internal::DynTypedMatcher MissingCallCollectiveMutation::getMatcher(){
     ast_matchers::internal::DynTypedMatcher matcher =
 
-      traverse(clang::ast_type_traits::TK_IgnoreUnlessSpelledInSource,
+      traverse(TK_IgnoreUnlessSpelledInSource,
           callExpr(
             callExpr().bind("mpi_call_expr"),
             hasDeclaration(
@@ -1187,7 +1187,7 @@ namespace mpi_mutation_tool {
   ast_matchers::internal::DynTypedMatcher ArgErrorRoot1Mutation::getMatcher(){
     ast_matchers::internal::DynTypedMatcher matcher =
 
-      traverse(clang::ast_type_traits::TK_IgnoreUnlessSpelledInSource,
+      traverse(TK_IgnoreUnlessSpelledInSource,
           callExpr(
             callExpr().bind("mpi_call_expr"),
             hasDeclaration(
@@ -1208,7 +1208,7 @@ namespace mpi_mutation_tool {
   ast_matchers::internal::DynTypedMatcher ArgErrorRoot1Arg6Mutation::getMatcher(){
     ast_matchers::internal::DynTypedMatcher matcher =
 
-      traverse(clang::ast_type_traits::TK_IgnoreUnlessSpelledInSource,
+      traverse(TK_IgnoreUnlessSpelledInSource,
           callExpr(
             callExpr().bind("mpi_call_expr"),
             hasDeclaration(
@@ -1296,7 +1296,7 @@ namespace mpi_mutation_tool {
   ast_matchers::internal::DynTypedMatcher ArgMismatchRootMutation::getMatcher(){
     ast_matchers::internal::DynTypedMatcher matcher =
 
-      traverse(clang::ast_type_traits::TK_IgnoreUnlessSpelledInSource,
+      traverse(TK_IgnoreUnlessSpelledInSource,
           callExpr(
             callExpr().bind("mpi_call_expr"),
             hasDeclaration(
@@ -1340,7 +1340,7 @@ namespace mpi_mutation_tool {
   ast_matchers::internal::DynTypedMatcher ArgErrorOp1Mutation::getMatcher(){
     ast_matchers::internal::DynTypedMatcher matcher =
 
-      traverse(clang::ast_type_traits::TK_IgnoreUnlessSpelledInSource,
+      traverse(TK_IgnoreUnlessSpelledInSource,
           callExpr(
             callExpr().bind("mpi_call_expr"),
             hasDeclaration(
@@ -1436,7 +1436,7 @@ namespace mpi_mutation_tool {
   ast_matchers::internal::DynTypedMatcher ArgMismatchOpMutation::getMatcher(){
     ast_matchers::internal::DynTypedMatcher matcher =
 
-      traverse(clang::ast_type_traits::TK_IgnoreUnlessSpelledInSource,
+      traverse(TK_IgnoreUnlessSpelledInSource,
           callExpr(
             callExpr().bind("mpi_call_expr"),
             hasDeclaration(
@@ -1489,7 +1489,7 @@ namespace mpi_mutation_tool {
   ast_matchers::internal::DynTypedMatcher SplitCollectiveCallMutation::getMatcher(){
     ast_matchers::internal::DynTypedMatcher matcher =
 
-      traverse(clang::ast_type_traits::TK_IgnoreUnlessSpelledInSource,
+      traverse(TK_IgnoreUnlessSpelledInSource,
           callExpr(
             callExpr().bind("mpi_call_expr"),
             hasDeclaration(
@@ -1537,7 +1537,7 @@ namespace mpi_mutation_tool {
   ast_matchers::internal::DynTypedMatcher MisplacedCallBarrierMutation::getMatcher(){
     ast_matchers::internal::DynTypedMatcher matcher =
 
-      traverse(clang::ast_type_traits::TK_IgnoreUnlessSpelledInSource,
+      traverse(TK_IgnoreUnlessSpelledInSource,
           callExpr(
             callExpr().bind("mpi_call_expr"),
             hasDeclaration(
@@ -1579,7 +1579,7 @@ namespace mpi_mutation_tool {
   ast_matchers::internal::DynTypedMatcher MisplacedCallBarrier2Mutation::getMatcher(){
     ast_matchers::internal::DynTypedMatcher matcher =
 
-      traverse(clang::ast_type_traits::TK_IgnoreUnlessSpelledInSource,
+      traverse(TK_IgnoreUnlessSpelledInSource,
           callExpr(
             callExpr().bind("mpi_call_expr"),
             hasDeclaration(
@@ -1627,7 +1627,7 @@ namespace mpi_mutation_tool {
   ast_matchers::internal::DynTypedMatcher ArgMismatchIrecvBufferOverlapMutation::getMatcher(){
     ast_matchers::internal::DynTypedMatcher matcher =
 
-      traverse(clang::ast_type_traits::TK_IgnoreUnlessSpelledInSource,
+      traverse(TK_IgnoreUnlessSpelledInSource,
           callExpr(
             callExpr().bind("mpi_call_expr"),
             hasDeclaration(
