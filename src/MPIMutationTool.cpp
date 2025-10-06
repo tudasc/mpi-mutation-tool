@@ -202,6 +202,7 @@ int main(int argc, const char **argv) {
       }
       else if(mutation_str == "ArgMismatchIrecvBufferOverlapMutation"){
         mutation_objects.push_back(new ArgMismatchIrecvBufferOverlapMutation());
+      }
       else if (mutation_str == "NoErrorSelfSendRecvBeforeBarrierMutation")
       {
         mutation_objects.push_back(new NoErrorSelfSendRecvBeforeBarrierMutation());
