@@ -1028,6 +1028,21 @@ class ArgMismatchIrecvBufferOverlapMutation : public InsertOverlappingIrecvMutat
 };
 
 // mutations that do NOT introduce errors
+
+  class NoErrorSelfSendRecvBeforeBarrierMutation : public Mutation
+  {
+  public:
+    void mutationCallback(const MatchFinder::MatchResult &result, Rewriter *rewriter);
+    ast_matchers::internal::DynTypedMatcher getMatcher();
+
+  };
+
+  class NoErrorBroadcastSelfMutation : public Mutation
+  {
+  public:
+    void mutationCallback(const MatchFinder::MatchResult &result, Rewriter *rewriter);
+  };
+
   class NoErrorBroadcastSelf1Mutation : public NoErrorBroadcastSelfMutation
   {
   public:
