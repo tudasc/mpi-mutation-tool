@@ -202,6 +202,17 @@ int main(int argc, const char **argv) {
       }
       else if(mutation_str == "ArgMismatchIrecvBufferOverlapMutation"){
         mutation_objects.push_back(new ArgMismatchIrecvBufferOverlapMutation());
+      else if (mutation_str == "NoErrorSelfSendRecvBeforeBarrierMutation")
+      {
+        mutation_objects.push_back(new NoErrorSelfSendRecvBeforeBarrierMutation());
+      }
+      else if (mutation_str == "NoErrorBroadcastSelf1Mutation")
+      {
+        mutation_objects.push_back(new NoErrorBroadcastSelf1Mutation());
+      }
+      else if (mutation_str == "NoErrorBarrierInsertion1Mutation")
+      {
+        mutation_objects.push_back(new NoErrorBarrierInsertion1Mutation());
       }
 
       for(auto mutation : mutation_objects) {

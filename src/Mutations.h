@@ -1027,5 +1027,28 @@ class ArgMismatchIrecvBufferOverlapMutation : public InsertOverlappingIrecvMutat
     ast_matchers::internal::DynTypedMatcher getMatcher();
 };
 
+// mutations that do NOT introduce errors
+  class NoErrorBroadcastSelf1Mutation : public NoErrorBroadcastSelfMutation
+  {
+  public:
+    ast_matchers::internal::DynTypedMatcher getMatcher();
+  };
+
+  /*
+   * Base class for mutations that insert a Barrier call before an MPI call
+   */
+  class NoErrorBarrierInsertionMutation : public Mutation
+  {
+  public:
+    void mutationCallback(const MatchFinder::MatchResult &result, Rewriter *rewriter);
+  };
+
+  class NoErrorBarrierInsertion1Mutation : public NoErrorBarrierInsertionMutation
+  {
+  public:
+    ast_matchers::internal::DynTypedMatcher getMatcher();
+  };
+
+
 }
 #endif // MPI_MUTATION_TOOL_MUTATIONS

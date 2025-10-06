@@ -1642,4 +1642,119 @@ namespace mpi_mutation_tool {
     return matcher;
   }
 
+// No error mutations
+
+  void NoErrorSelfSendRecvMutation::mutationCallback(const MatchFinder::MatchResult &result, Rewriter *rewriter)
+  {
+    auto *mpi_call_expr = result.Nodes.getNodeAs<CallExpr>("mpi_call_expr");
+    auto *parent_compound_stmt = result.Nodes.getNodeAs<CompoundStmt>("parent_compound_stmt");
+
+    assert(mpi_call_expr);
+
+    SourceLocation begin_loc = result.SourceManager->getSpellingLoc(mpi_call_expr->getBeginLoc());
+    SourceLocation end_loc = result.SourceManager->getSpellingLoc(mpi_call_expr->getEndLoc());
+
+    std::string unique_id = std::to_string(rand());
+
+    std::string code_to_insert =
+        "int dummy" + unique_id + " = 0;\n"
+                                  "int dummy_rank_" +
+        unique_id + ";\n"
+                    "MPI_Comm_rank(MPI_COMM_WORLD, &dummy_rank_" +
+        unique_id + ");\n"
+                    "MPI_Status status" +
+        unique_id + ";\n"
+                    "MPI_Send(&dummy" +
+        unique_id + ", 1, MPI_INT, dummy_rank_" + unique_id + ", 999, MPI_COMM_WORLD);\n"
+                                                              "MPI_Recv(&dummy" +
+        unique_id + ", 1, MPI_INT, dummy_rank_" + unique_id + ", 999, MPI_COMM_WORLD, &status" + unique_id + ");\n";
+
+    rewriter->InsertTextBefore(begin_loc, code_to_insert);
+
+    if (!parent_compound_stmt)
+    {
+      rewriter->InsertTextBefore(begin_loc, "{");
+      rewriter->InsertTextAfterToken(end_loc.getLocWithOffset(2), "}");
+    }
+  }
+
+  ast_matchers::internal::DynTypedMatcher NoErrorSelfSendRecvBeforeBarrierMutation::getMatcher()
+  {
+    return traverse(
+        TK_IgnoreUnlessSpelledInSource,
+        callExpr(
+            callExpr().bind("mpi_call_expr"),
+            hasDeclaration(functionDecl(hasName("MPI_Barrier"))),
+            optionally(hasParent(compoundStmt().bind("parent_compound_stmt")))));
+  }
+
+  void NoErrorBroadcastSelfMutation::mutationCallback(const MatchFinder::MatchResult &result, Rewriter *rewriter)
+  {
+    auto *mpi_call_expr = result.Nodes.getNodeAs<CallExpr>("mpi_call_expr");
+    auto *parent_compound_stmt = result.Nodes.getNodeAs<CompoundStmt>("parent_compound_stmt");
+
+    assert(mpi_call_expr);
+
+    SourceLocation begin_loc = result.SourceManager->getSpellingLoc(mpi_call_expr->getBeginLoc());
+    SourceLocation end_loc = result.SourceManager->getSpellingLoc(mpi_call_expr->getEndLoc());
+
+    std::string unique_id = std::to_string(rand());
+
+    std::string code_to_insert =
+        "int dummy" + unique_id + " = 0;\n"
+                                  "int dummy_rank_" +
+        unique_id + ";\n"
+                    "MPI_Comm_rank(MPI_COMM_WORLD, &dummy_rank_" +
+        unique_id + ");\n"
+                    "MPI_Bcast(&dummy" +
+        unique_id + ", 1, MPI_INT, dummy_rank_" + unique_id + ", MPI_COMM_WORLD);\n";
+
+    rewriter->InsertTextBefore(begin_loc, code_to_insert);
+
+    if (!parent_compound_stmt)
+    {
+      rewriter->InsertTextBefore(begin_loc, "{");
+      rewriter->InsertTextAfterToken(end_loc.getLocWithOffset(2), "}");
+    }
+  }
+
+  ast_matchers::internal::DynTypedMatcher NoErrorBroadcastSelf1Mutation::getMatcher()
+  {
+    return traverse(
+        TK_IgnoreUnlessSpelledInSource,
+        callExpr(
+            hasDeclaration(functionDecl(hasAnyName("MPI_Reduce", "MPI_Gather"))))
+            .bind("mpi_call_expr"));
+  }
+
+  void NoErrorBarrierInsertionMutation::mutationCallback(const MatchFinder::MatchResult &result, Rewriter *rewriter)
+  {
+    auto *mpi_call_expr = result.Nodes.getNodeAs<CallExpr>("mpi_call_expr");
+    auto *parent_compound_stmt = result.Nodes.getNodeAs<CompoundStmt>("parent_compound_stmt");
+
+    assert(mpi_call_expr);
+
+    SourceLocation begin_loc = result.SourceManager->getSpellingLoc(mpi_call_expr->getBeginLoc());
+    SourceLocation end_loc = result.SourceManager->getSpellingLoc(mpi_call_expr->getEndLoc());
+
+    std::string code_to_insert = "MPI_Barrier(MPI_COMM_WORLD);\n";
+
+    rewriter->InsertTextBefore(begin_loc, code_to_insert);
+
+    if (!parent_compound_stmt)
+    {
+      rewriter->InsertTextBefore(begin_loc, "{");
+      rewriter->InsertTextAfterToken(end_loc.getLocWithOffset(2), "}");
+    }
+  }
+
+  ast_matchers::internal::DynTypedMatcher NoErrorBarrierInsertion1Mutation::getMatcher()
+  {
+    return traverse(
+        TK_IgnoreUnlessSpelledInSource,
+        callExpr(
+            hasDeclaration(functionDecl(hasAnyName("MPI_Send", "MPI_Recv"))))
+            .bind("mpi_call_expr"));
+  }
+
 }
