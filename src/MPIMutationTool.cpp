@@ -211,9 +211,9 @@ int main(int argc, const char **argv) {
       {
         mutation_objects.push_back(new NoErrorBroadcastSelf1Mutation());
       }
-      else if (mutation_str == "NoErrorBarrierInsertion1Mutation")
+      else if (mutation_str == "CallOrderingBarrierInsertion1Mutation")
       {
-        mutation_objects.push_back(new NoErrorBarrierInsertion1Mutation());
+        mutation_objects.push_back(new CallOrderingBarrierInsertion1Mutation());
       }
 
       for(auto mutation : mutation_objects) {

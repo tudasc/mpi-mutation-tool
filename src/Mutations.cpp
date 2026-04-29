@@ -1727,7 +1727,7 @@ namespace mpi_mutation_tool {
             .bind("mpi_call_expr"));
   }
 
-  void NoErrorBarrierInsertionMutation::mutationCallback(const MatchFinder::MatchResult &result, Rewriter *rewriter)
+  void CallOrderingBarrierInsertionMutation::mutationCallback(const MatchFinder::MatchResult &result, Rewriter *rewriter)
   {
     auto *mpi_call_expr = result.Nodes.getNodeAs<CallExpr>("mpi_call_expr");
     auto *parent_compound_stmt = result.Nodes.getNodeAs<CompoundStmt>("parent_compound_stmt");
@@ -1748,7 +1748,7 @@ namespace mpi_mutation_tool {
     }
   }
 
-  ast_matchers::internal::DynTypedMatcher NoErrorBarrierInsertion1Mutation::getMatcher()
+  ast_matchers::internal::DynTypedMatcher CallOrderingBarrierInsertion1Mutation::getMatcher()
   {
     return traverse(
         TK_IgnoreUnlessSpelledInSource,

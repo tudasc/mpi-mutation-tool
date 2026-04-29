@@ -1027,22 +1027,24 @@ class ArgMismatchIrecvBufferOverlapMutation : public InsertOverlappingIrecvMutat
     ast_matchers::internal::DynTypedMatcher getMatcher();
 };
 
-// mutations that do NOT introduce errors
-
+/*
+   * Base class for mutations that insert a send/recv from one process to itself
+   */
   class NoErrorSelfSendRecvMutation : public Mutation
   {
   public:
     void mutationCallback(const MatchFinder::MatchResult &result, Rewriter *rewriter);
-
   };
 
   class NoErrorSelfSendRecvBeforeBarrierMutation : public NoErrorSelfSendRecvMutation
   {
   public:
     ast_matchers::internal::DynTypedMatcher getMatcher();
-
   };
 
+  /*
+   * Base class for mutations that insert a Bcast from one process to itself
+   */
   class NoErrorBroadcastSelfMutation : public Mutation
   {
   public:
@@ -1058,18 +1060,17 @@ class ArgMismatchIrecvBufferOverlapMutation : public InsertOverlappingIrecvMutat
   /*
    * Base class for mutations that insert a Barrier call before an MPI call
    */
-  class NoErrorBarrierInsertionMutation : public Mutation
+  class CallOrderingBarrierInsertionMutation : public Mutation
   {
   public:
     void mutationCallback(const MatchFinder::MatchResult &result, Rewriter *rewriter);
   };
 
-  class NoErrorBarrierInsertion1Mutation : public NoErrorBarrierInsertionMutation
+  class CallOrderingBarrierInsertion1Mutation : public CallOrderingBarrierInsertionMutation
   {
   public:
     ast_matchers::internal::DynTypedMatcher getMatcher();
   };
-
 
 }
 #endif // MPI_MUTATION_TOOL_MUTATIONS
